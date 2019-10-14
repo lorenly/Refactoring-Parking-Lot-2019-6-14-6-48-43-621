@@ -87,7 +87,6 @@ class Story1 {
         ParkingTicket parkingTicket = parkingBoy.park(car);
 
         Car fetchCar = parkingBoy.fetch(parkingTicket);
-        assertNotNull(fetchCar);
 
         fetchCar = parkingBoy.fetch(parkingTicket);
         assertNull(fetchCar);
