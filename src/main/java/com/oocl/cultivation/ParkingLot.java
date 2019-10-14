@@ -27,15 +27,14 @@ public class ParkingLot {
 
     public Car getCar(ParkingTicket ticket){
         Car car = cars.get(ticket);
-        cars.remove(ticket);
-        return car;
+        return cars.remove(ticket);
     }
 
-    public boolean checkValidTicket(ParkingTicket ticket){
+    public boolean isValidTicket(ParkingTicket ticket){
         return getCar(ticket) == null ? true : false;
     }
 
-    public boolean checkParkingPosition(Car car){
+    public boolean isParkingPositionFull(Car car){
         return addCar(car) == null ? true : false;
     }
 

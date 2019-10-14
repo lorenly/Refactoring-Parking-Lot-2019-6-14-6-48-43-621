@@ -18,14 +18,20 @@ public class ParkingBoy {
     }
 
     public ParkingTicket park(Car car) {
+        isParkingLotFull(car);
         return parkingLot.addCar(car);
     }
 
-    public void isValidTicket(ParkingTicket ticket){
-        Car car = new Car();
-        this.lastErrorMessage = parkingLot.checkParkingPosition(car) == true ?
-                "Not enough position." : parkingLot.checkValidTicket(ticket) == true ?
-                "Unrecognized parking ticket." :  "Please provide your parking ticket.";
+    private void isValidTicket(ParkingTicket ticket){
+        this.lastErrorMessage = parkingLot.isValidTicket(ticket) == true ?
+                "Please provide your parking ticket." :
+                        "Unrecognized parking ticket.";
     }
+
+    private void isParkingLotFull(Car car){
+        this.lastErrorMessage = parkingLot.isParkingPositionFull(car) == true? "Not enough position." : null;
+    }
+
+
 
 }
