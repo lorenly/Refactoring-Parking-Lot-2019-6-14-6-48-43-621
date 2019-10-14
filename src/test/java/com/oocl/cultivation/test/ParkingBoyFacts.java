@@ -120,7 +120,6 @@ class story2{
         ParkingTicket fakeParkingTicket = parkingBoy.park(car);
         parkingBoy.fetch(fakeParkingTicket);
 
-        parkingBoy.isValidTicket(fakeParkingTicket);
         String fetch = parkingBoy.getLastErrorMessage();
         assertEquals(fetch, "Unrecognized parking ticket.");
     }
@@ -131,10 +130,9 @@ class story2{
         ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
 
-        ParkingTicket parkingTicket = parkingBoy.park(car);
+        parkingBoy.park(car);
         parkingBoy.fetch(null);
 
-        parkingBoy.isValidTicket(parkingTicket);
         String fetch = parkingBoy.getLastErrorMessage();
         assertEquals(fetch, "Please provide your parking ticket.");
     }
@@ -150,8 +148,7 @@ class story2{
         });
 
         Car car = new Car();
-        ParkingTicket parkingTicket = parkingBoy.park(car);
-        parkingBoy.isValidTicket(parkingTicket);
+        parkingBoy.park(car);
         String fetch = parkingBoy.getLastErrorMessage();
 
         assertEquals(fetch, "Not enough position.");
