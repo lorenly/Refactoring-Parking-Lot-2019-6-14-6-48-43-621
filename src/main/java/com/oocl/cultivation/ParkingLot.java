@@ -28,11 +28,12 @@ public class ParkingLot {
     public Car getCar(ParkingTicket ticket){
         Car car = cars.get(ticket);
         cars.remove(ticket);
+        System.out.print(car);
         return car;
     }
 
     public boolean isValidTicket(ParkingTicket ticket){
-        return getCar(ticket) == null ? true : false;
+        return ticket == null ? true : false;
     }
 
     public boolean isParkingPositionFull(Car car){

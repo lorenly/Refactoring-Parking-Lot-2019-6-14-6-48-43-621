@@ -10,7 +10,9 @@ public class ParkingBoy {
     }
 
     public Car fetch(ParkingTicket ticket) {
-        return parkingLot.getCar(ticket);
+        Car car = parkingLot.getCar(ticket);
+        isValidTicket(ticket);
+        return car;
     }
 
     public String getLastErrorMessage() {
@@ -24,8 +26,7 @@ public class ParkingBoy {
 
     private void isValidTicket(ParkingTicket ticket){
         this.lastErrorMessage = parkingLot.isValidTicket(ticket) == true ?
-                "Please provide your parking ticket." :
-                        "Unrecognized parking ticket.";
+                "Please provide your parking ticket." : "Unrecognized parking ticket.";
     }
 
     private void isParkingLotFull(Car car){
