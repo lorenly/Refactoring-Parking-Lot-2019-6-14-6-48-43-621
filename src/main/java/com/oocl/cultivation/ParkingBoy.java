@@ -11,7 +11,7 @@ public class ParkingBoy {
 
     public Car fetch(ParkingTicket ticket) {
         Car car = parkingLot.getCar(ticket);
-        isValidTicket(ticket);
+        inValidTicketMessage(ticket);
         return car;
     }
 
@@ -20,16 +20,16 @@ public class ParkingBoy {
     }
 
     public ParkingTicket park(Car car) {
-        isParkingLotFull(car);
+        ParkingLotFullMessage(car);
         return parkingLot.addCar(car);
     }
 
-    private void isValidTicket(ParkingTicket ticket){
+    private void inValidTicketMessage(ParkingTicket ticket){
         this.lastErrorMessage = parkingLot.isValidTicket(ticket) == true ?
                 "Please provide your parking ticket." : "Unrecognized parking ticket.";
     }
 
-    private void isParkingLotFull(Car car){
+    private void ParkingLotFullMessage(Car car){
         this.lastErrorMessage = parkingLot.isParkingPositionFull(car) == true? "Not enough position." : null;
     }
 
